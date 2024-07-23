@@ -1,0 +1,17 @@
+.btn-red {
+  background-color: #F70000;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 11pt;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.btn-red:hover {
+  background-color: #d80000;
+}

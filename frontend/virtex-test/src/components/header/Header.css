@@ -1,0 +1,25 @@
+.header {
+  background-color: #F5F5F5;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  height: 60px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  width: 200px;
+  max-width: 90%;
+  margin-left: 20px;
+}
+
+@media (max-width:700px) {
+  .header {
+    justify-content: center;
+  }
+
+  .header img {
+    margin-left: 0px;
+  }
+}

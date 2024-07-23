@@ -1,0 +1,41 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90%;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  margin: 30px 0 10px 0;
+}
+
+.btn-wrapper button {
+  margin-right: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+
+@media (max-width:1200px){
+  .btn-wrapper {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+  }
+
+  .btn-wrapper button {
+    margin: 10px 0px;
+  }
+}
