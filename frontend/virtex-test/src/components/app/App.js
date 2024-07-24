@@ -14,7 +14,7 @@ function App() {
           <Button children='Listar Dados da base'></Button>
         </div>
         <div className='table-wrapper'>
-          <Table></Table>
+          <Table data={[['Titulo1' , 'Titulo2', 'Titulo3', 'Titulo4', 'Titulo5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5']]}/>
         </div>
       </div>
     </div>

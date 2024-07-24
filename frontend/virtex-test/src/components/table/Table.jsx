@@ -3,7 +3,8 @@ import './Table.css'
 function Table({ data }) {
   if (!data || data.length === 0) return <p>Nenhum dado carregado</p>;
 
-  const headers = Object.keys(data[0]); // Assumindo que todos os objetos têm a mesma estrutura
+  const headers = data[0];
+  const rows = data.slice(1)
 
   return (
     <table className="data-table">
@@ -15,13 +16,15 @@ function Table({ data }) {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
-            {headers.map((header) => (
-              <td key={header}>{row[header]}</td>
-            ))}
-          </tr>
-        ))}
+        {
+          rows.map((row, index) => (
+            <tr>
+              {row.map((info, i) => (
+              <td key={i}>{info}</td>
+              ))}
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   );
