@@ -1,14 +1,13 @@
 'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('olt_devices', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('OltDevices', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
+        type: Sequelize.INTEGER
       },
       slot: {
         type: Sequelize.INTEGER,
@@ -16,36 +15,36 @@ module.exports = {
       },
       port: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       ont_id: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       sn: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+        unique: true
       },
       state: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true
       },
       brand: {
-        type: Sequelize.ENUM('Huawei', 'ZTE'),
-        allowNull: false,
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
+        allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     });
   },
-
-  async down (queryInterface, Sequelize) {
-   
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('OltDevices');
   }
 };
