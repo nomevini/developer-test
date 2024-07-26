@@ -1,8 +1,7 @@
 const {sequelize}  = require('../../db/models');
 const { Sequelize } = require('sequelize');
 
-
-async function upsertData(data) {
+async function insertDataHuawei(data) {
   try {
     // Construa a string de valores para a query SQL
     const values = data.map(item => 
@@ -35,5 +34,5 @@ async function upsertData(data) {
 }
 
 module.exports = {
-  upsertData
+  insertDataHuawei
 }

@@ -1,24 +1,30 @@
-const {parseHuaweiOlt} = require('../services/parse')
-const {upsertData} = require('../repositories/huaweiOltInsert')
+const {parseOlt} = require('../services/parses')
+const {insertDataHuawei} = require('../repositories/huaweiOltInsert')
+const { zteOltInsertType1, zteOltInsertType2 } = require('../repositories/zteOltInsert')
+const { regexHuawei, regexZteType1, regexZteType2 } = require('../../../utils/regex')
 
 const uploadFile = async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({message: 'Nenhum arquivo foi enviado.'});
-    }
+    let result = undefined
+    if(req.type == 1){
+      const data = parseOlt(req.file.path, req.type, regexZteType1)
+      result = await zteOltInsertType1(data)
+    } else if (req.type == 2) {
+      const data = parseOlt(req.file.path, req.type, regexZteType2)
+      result = await zteOltInsertType2(data)
+    } else {
+      const data = parseOlt(req.file.path, req.type, regexHuawei)
+      result = await insertDataHuawei(data)
+    }  
 
-    const data = parseHuaweiOlt(req.file.path)
-    console.log(data)
-
-    // salvar no banco
-    const result = await upsertData(data)
     if (!result.success) {
       res.status(500).json({message: 'Erro interno do servidor. Não foi possível inserir os dados.'})
     }
 
-    res.status(200).json({message: 'Arquivo recebido e processado com sucesso.'});
+    res.status(200).json({message: 'Arquivo processado com sucesso.'});
   
   } catch (error) {
+    console.log(error)
     return res.status(500).send('Erro interno do servidor.');
   }
 }
