@@ -10,25 +10,28 @@ const verifyUpload = (req, res, next) => {
 
     const fileContent = fs.readFileSync(req.file.path, 'utf-8');
     const lines = fileContent.split('\n');
-    const typeArchive = 0;
-
+    let flagTypeArchive = 0;
+    
     for (const line in lines) {
       if (lines[line].match(regexZteType1)) { 
         req.type = 1
+        flagTypeArchive = 1;
         req.brand = 'zte'
         break
       }else if (lines[line].match(regexZteType2)) {
         req.type = 2
+        flagTypeArchive = 1;
         req.brand = 'zte'
         break
       } else if (lines[line].match(regexHuawei)) {
         req.type = 3
         req.brand = 'huawei'
+        flagTypeArchive = 1;
         break
       }
     }
     
-    if(!typeArchive){
+    if(!flagTypeArchive){
       return res.status(400).json({message: "Arquivo enviado não condiz com o padrão esperado"})
     }
 
