@@ -7,10 +7,11 @@ Para rodar esse projeto, é esperado que você tenha instalado em sua máquina:
 - Nodejs (estou usando a versão v12.22.9)
 - npm (estou usando a versão 10.7.0)
 - Clone o projeto para a sua máquina
+
 ## Iniciando o banco de dados no container Docker
 
+> Todos os comando foram executados no linux(ubuntu). Outros Sistemas Operacionais podem ter variações para os comandos mencionados nesse tutorial.
 
-> [!NOTE] OBS
 > Como já havia o postgres na minha máquina, a conexão com o container está partindo da port 5433 local para 5432 do container. Caso for visualizar os dados no seu computador, use essa porta. dados de usuário e senha estão disponíveis no .env
 
 Nessa etapa, devemos criar o container e banco de dados. As vezes, por questões de container anteriores e persistência de dados, ele pode não criar. você pode criar vc mesmo o bd 'virtex' no postgres ou executar o comando 
@@ -31,10 +32,8 @@ O próximo passo é inicializar nosso backend e nosso frontend.
 
 ## Backend
 
-> [!NOTE] OBS2 
 > Note que eu usei o .env tanto no frontend, quanto no backend. Para facilitar a implementação, eu já subi esses arquivos no repositório também, o que pode não ser uma boa prática em contextos reais.
 
-> [!NOTE] OBS3
 > Serão necessários 2 terminais para rodar o front e back simultaneamente.
 
 No diretório /backend execute o seguinte comando:
