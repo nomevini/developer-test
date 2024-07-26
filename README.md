@@ -81,9 +81,16 @@ npm run start
 
 Nosso frontend deve executar no seu navegador e você pode realizar os teste agora. 
 
+Infelizmente, não consegui implementar a tempo um popup para visualizar os status, mas você pode acompanhar pelo console do navegador.
+
 :)
 
 # Funcionamento idealizado do projeto
+
+![Texto alternativo](excalidraw.png)
+
+Aqui você encotra o protótipo no [Figma](https://www.figma.com/design/BLJx92veEpUejngVxx2nUs/dev-test-virtex?node-id=0-1&t=eplg9dDQuGVwS6sA-1)
+
 
 Ao criar o projeto, após várias leituras do pdf do case, eu deduzi um comportamento esperado do usuário para com o sistema. Alguns comportamentos não eram exatamente bem detalhados (até pq esse não era o objetivo do teste), então tive que escolher algumas estratégias de funcionamento, o que pode não estar de acordo com o esperado (em casos reais, eu teria perguntado para alguém kkkkkk)
 
@@ -101,3 +108,7 @@ Seguindo as etapas partindo do usuário, o sistema está funcionando da seguinte
 	3. zte: Nesse caso, como o usuário só envia um por vez, caso ele enviasse 1 arquivo, eu teria slot, port, ont_id e state e no outro slot, port, ont_id, sn. Eu não poderia usar o ON CONFLIT aqui da forma que estava, pois o usuário poderia inserir o primeiro .txt que não tivesse o sn. também imaginei que o slots, port e onto_id não poderia ser únicos por si só. Portando, a estratégia aqui foi criar um index unico que ligava slot, port, ont_id e brand(que é a marca). Assim, se eu encontrasse um conflito para um registro, eu poderia garantir que era o slot, port, ont_id da marca zte. 
 8. Após inseridos os dados, é retornado o sucesso.
 9. Ao capturar os dados, é feito apenas um GET no banco todo para capturar ar informações relevantes para a tabela no frontend.
+
+# Faltou, mas era pra ter kkkk
+- testes
+- popup de status no frontend (arquivo enviado, erro)
