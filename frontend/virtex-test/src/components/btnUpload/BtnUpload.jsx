@@ -56,6 +56,7 @@ const BtnUpload = () => {
         ref={fileInputRef}
         style={{ display: 'none' }}
         onChange={handleFileChange}
+        accept=".txt"
       />
     </div>
   );
