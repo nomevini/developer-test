@@ -1,10 +1,15 @@
-import './Table.css'
+// Table.js
+import React from 'react';
+import { useDataContext } from '../DataContext';
+import './Table.css';
 
-function Table({ data }) {
+function Table() {
+  const { data } = useDataContext();
+
   if (!data || data.length === 0) return <p>Nenhum dado carregado</p>;
 
-  const headers = data[0];
-  const rows = data.slice(1)
+  const headers = Object.keys(data[0]);
+  const rows = data.map((item) => Object.values(item));
 
   return (
     <table className="data-table">
@@ -18,9 +23,9 @@ function Table({ data }) {
       <tbody>
         {
           rows.map((row, index) => (
-            <tr>
+            <tr key={index}>
               {row.map((info, i) => (
-              <td key={i}>{info}</td>
+                <td key={i}>{info}</td>
               ))}
             </tr>
           ))

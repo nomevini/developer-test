@@ -1,7 +1,9 @@
 import './App.css';
 import Header from '../header/Header';
-import Button from '../button/Button';
+import BtnLoadData from '../btnLoadData/BtnLoadData';
+import BtnUpload from '../btnUpload/BtnUpload';
 import Table from '../table/Table';
+import { DataProvider } from '../DataContext';
 
 
 function App() {
@@ -9,13 +11,16 @@ function App() {
     <div className="App">
       <Header></Header>
       <div className='container'>
-        <div className='btn-wrapper'>
-          <Button children='Carregar Arquivo'></Button>
-          <Button children='Listar Dados da base'></Button>
-        </div>
-        <div className='table-wrapper'>
-          <Table data={[['Titulo1' , 'Titulo2', 'Titulo3', 'Titulo4', 'Titulo5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5'],['info1' , 'info2', 'info3', 'info4', 'info5']]}/>
-        </div>
+          <DataProvider>
+            <div className='btn-wrapper'>
+              <BtnUpload/>
+              <BtnLoadData></BtnLoadData>
+            </div>    
+
+            <div className='table-wrapper'>
+              <Table/>
+            </div>
+          </DataProvider>
       </div>
     </div>
   );
