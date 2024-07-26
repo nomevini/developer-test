@@ -10,7 +10,7 @@ const verifyUpload = (req, res, next) => {
 
     const fileContent = fs.readFileSync(req.file.path, 'utf-8');
     const lines = fileContent.split('\n');
-    const typeArchive = -1;
+    const typeArchive = 0;
 
     for (const line in lines) {
       if (lines[line].match(regexZteType1)) { 
